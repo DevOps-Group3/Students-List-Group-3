@@ -1,21 +1,97 @@
+/* General styling for the app */
 .App {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  font-family: 'Roboto', 'Arial', sans-serif; /* Updated font family */
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f9f9f9, #e0e4e8); /* Refined gradient background */
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Importing Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Styling for the header */
 h1 {
-  color: #333;
+  color: #2c3e50;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 4px solid #3498db;
+  padding-bottom: 16px;
+  font-weight: 700; /* Bold header text */
+  letter-spacing: 1px; /* Increased letter spacing */
+  text-transform: uppercase; /* Uppercase text */
 }
 
+/* Styling for the list */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
+/* Styling for each list item */
 li {
-  margin: 5px 0;
-  padding: 10px;
-  background-color: #f9f9f9;
+  margin: 16px 0;
+  padding: 20px;
+  background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Change background color and add scale effect on hover */
+li:hover {
+  background-color: #f1f8ff;
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for student name */
+li .name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Styling for student ID */
+li .id {
+  font-size: 15px;
+  color: #7f8c8d;
+  font-weight: 300;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  li {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  li {
+    padding: 12px;
+    font-size: 15px;
+  }
 }
