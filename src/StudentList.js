@@ -11,7 +11,7 @@ const students = [
 const StudentList = () => {
   return (
     <div>
-      <h1>Group 3 - Student List</h1>
+      <h1>DevOps Tools and Practices 03: Group 3</h1>
       <ul>
         {students.map((student) => (
           <li key={student.id}>
