@@ -25,7 +25,7 @@ jobs:
         run: npm install  # Installs npm dependencies required for the project
 
       - name: Run tests
-        run: npm run test -- --coverage  # Runs tests and generates coverage reports
+        run: npm test -- --coverage  # Runs tests and generates coverage reports
 
       - name: Build application
         run: npm run build  # Builds the React application
