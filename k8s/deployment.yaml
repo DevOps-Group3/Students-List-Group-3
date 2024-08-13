@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-list-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-list-app
+  template:
+    metadata:
+      labels:
+        app: student-list-app
+    spec:
+      containers:
+        - name: student-list-container
+          image: student-list-group-3:latest
+          ports:
+            - containerPort: 3000
