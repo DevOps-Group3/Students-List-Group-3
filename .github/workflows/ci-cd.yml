@@ -40,9 +40,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}  # Docker Hub password from repository secrets
 
       - name: Push Docker image to Docker Hub
+        # Tags and pushes the Docker image to Docker Hub
         run: |
           docker tag student-list-group-3:latest ${{ secrets.DOCKER_HUB_USERNAME }}/student-list-group-3:latest
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/student-list-group-3:latest  # Tags and pushes the Docker image to Docker Hub
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/student-list-group-3:latest
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
