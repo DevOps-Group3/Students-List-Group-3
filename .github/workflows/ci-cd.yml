@@ -3,10 +3,10 @@ name: CI/CD Pipeline  # Name of the workflow
 on:
   push:
     branches:
-      - master  # Trigger the workflow on push events to the 'main' branch
+      - master  # Trigger the workflow on push events to the 'master' branch
   pull_request:
     branches:
-      - master  # Trigger the workflow on pull requests targeting the 'main' branch
+      - master  # Trigger the workflow on pull requests targeting the 'master' branch
 
 jobs:
   build:
@@ -50,7 +50,13 @@ jobs:
         with:
           version: 'latest'  # Sets up kubectl to interact with the Kubernetes cluster
 
-      - name: Deploy to Kubernetes
+      - name: Create .kube directory
+        run: mkdir -p ~/.kube  # Create the .kube directory if it doesn't exist
+
+      - name: Configure kubectl
+        # Decode and write kubeconfig file
         run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config 
-          kubectl apply -f deployment.yaml        
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config  
+
+      - name: Deploy to Kubernetes
+        run: kubectl apply -f deployment.yaml  # Apply the Kubernetes deployment
