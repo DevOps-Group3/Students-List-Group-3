@@ -3,4 +3,9 @@ services:
   frontend:
     image: student-list-group-3:latest
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Mapping port 3000 on the host to port 3000 in the container
+
+  frontend_4000:
+    image: student-list-group-3:latest
+    ports:
+      - "4000:3000"  # Mapping port 4000 on the host to port 3000 in the container
