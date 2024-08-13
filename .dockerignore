@@ -1,0 +1,30 @@
+# Exclude the node_modules directory to avoid copying dependencies from the host.
+node_modules
+
+# Ignore npm debug logs and any other log files.
+npm-debug.log
+*.log
+
+# Exclude build artifacts to prevent including pre-built files that are generated during the build process.
+build
+dist
+
+# Ignore Docker configuration files, as they are not needed inside the container.
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Ignore Kubernetes configuration files, which are not required inside the container.
+k8s/
+
+# Exclude .env files containing sensitive environment variables; these should be managed securely outside the image.
+.env
+
+# Ignore IDE-specific configuration directories and files to avoid including development environment settings.
+.vscode
+.idea
+
+# Exclude Git-related files and directories, which are unnecessary inside the container.
+.git
+.gitignore
+.github
