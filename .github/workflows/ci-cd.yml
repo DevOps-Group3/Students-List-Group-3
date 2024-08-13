@@ -54,7 +54,7 @@ jobs:
         run: mkdir -p ~/.kube  # Create the .kube directory if it doesn't exist
 
       - name: Configure kubectl
-        # Decode and write kubeconfig file
+        # Decode and write kubeconfig file 
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config  
 
