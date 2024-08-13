@@ -1,19 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-list-app
+  name: frontend
 spec:
-  replicas: 2
+  replicas: 2  # Number of replicas for scaling
   selector:
     matchLabels:
-      app: student-list-app
+      app: frontend
   template:
     metadata:
       labels:
-        app: student-list-app
+        app: frontend
     spec:
       containers:
-        - name: student-list-container
-          image: student-list-group-3:latest
+        - name: frontend-container-3000
+          image: docker.io/974263/student-list-group-container:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 3000  # Port for the first container
+          env:
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: REACT_APP_API_URL  # Environment variable for the first API URL
+            - name: REACT_APP_FEATURE_FLAG
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: REACT_APP_FEATURE_FLAG
+            - name: REACT_APP_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: REACT_APP_ENVIRONMENT
