@@ -1,0 +1,6 @@
+version: '3'
+services:
+  frontend:
+    image: student-list-group-3:latest
+    ports:
+      - "3000:3000"
