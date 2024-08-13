@@ -49,8 +49,13 @@ jobs:
         run: |
           curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
           sudo install minikube /usr/local/bin/
+          sudo mkdir -p /home/runner/.kube
+          sudo mkdir -p /home/runner/.minikube
           minikube start --driver=docker
           minikube status
+        # Set KUBECONFIG to the correct path
+          echo "KUBECONFIG=/home/runner/.kube/config" >> $GITHUB_ENV
+
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
