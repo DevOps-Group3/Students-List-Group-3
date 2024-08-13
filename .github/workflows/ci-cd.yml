@@ -45,6 +45,13 @@ jobs:
           docker tag student-list-group-3:latest ${{ secrets.DOCKER_HUB_USERNAME }}/student-list-group-3:latest
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/student-list-group-3:latest
 
+      - name: Set up Minikube
+        run: |
+          curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          sudo install minikube /usr/local/bin/
+          minikube start --driver=docker
+          minikube status
+
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
         with:
