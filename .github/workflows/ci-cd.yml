@@ -28,7 +28,7 @@ jobs:
         run: npm run lint # Lints the code to check for syntax and style issues
 
       - name: Run tests
-        run: npm test -- --coverage # Runs tests and generates coverage reports
+        run: npm run test # Runs tests
 
       - name: Build application
         run: npm run build # Builds the React application
